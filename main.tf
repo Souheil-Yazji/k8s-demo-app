@@ -24,12 +24,19 @@ terraform {
 
 # Set the variable value in *.tfvars file
 # or using -var="do_token=..." CLI option
-variable "do_token" {}
+variable "do_token" {
+  description = "Digital Ocean Access Token"
+  type = "string"
+  sensitive = true
+}
 variable "github_username" {
   description = "Your github username"
+  type = "string"
+  sensitive = true
 }
 variable "cluster_name" {
   description = "A unique name for your cluster"
+  type = "string"
 }
 
 # Configure the DigitalOcean Provider
@@ -118,7 +125,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/${var.github_username}/k8s-demo-app.git
-    targetRevision: main
+    targetRevision: @cbrown/jsonnet-test
     path: manifests
   syncPolicy:
     automated:

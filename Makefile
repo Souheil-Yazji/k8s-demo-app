@@ -15,6 +15,7 @@ install:
 	rm -rf .$@
 
 init plan apply:
+	source .env
 	terraform $@
 
 kubeconfig:

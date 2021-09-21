@@ -3,3 +3,9 @@
 *.tfstate.backup
 bin
 *.lock.hcl
+
+.env
+*.log
+
+# VSCode
+settings.json
