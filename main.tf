@@ -38,6 +38,10 @@ variable "cluster_name" {
   description = "A unique name for your cluster"
   type = string
 }
+variable "target_branch" {
+  description = "Target branch to monitor in environment"
+  type = string
+}
 
 # Configure the DigitalOcean Provider
 provider "digitalocean" {
@@ -126,6 +130,16 @@ spec:
     path: argocd/argocd-apps
     repoURL: 'https://github.com/${var.github_username}/k8s-demo-app.git'
     targetRevision: "@cbrown/jsonnet-test"
+    directory:
+    jsonnet:
+      extVars:
+      - name: targetBranch
+        value: '${var.target_branch}'
+      tlas:
+        - name: ns
+          value: '$ARGOCD_APP_NAMESPACE'
+      libs:
+        - vendor
   project: default
   syncPolicy:
     automated:
