@@ -1,0 +1,1 @@
+Borrowed deployment examples from https://github.com/argoproj/argocd-example-apps
