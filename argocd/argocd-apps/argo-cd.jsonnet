@@ -36,6 +36,8 @@ local apps = [
 
 {
     [app + ".yml"]: {
+        apiVersion: "argoproj.io/v1alpha1",
+        kind: "Application",
         metadata: metadata(app),
         spec: spec(app)
     } for app in apps
