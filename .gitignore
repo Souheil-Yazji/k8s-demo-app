@@ -9,3 +9,6 @@ bin
 
 # VSCode
 settings.json
+
+# Terraform
+sensitive.tfvars

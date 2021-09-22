@@ -2,6 +2,7 @@
 OKGREEN := '\033[92m'
 ENDC := '\033[0m'
 BOLD := '\033[1m'
+SHELL := /bin/bash
 
 all: install init plan
 	@echo "Now do a `make apply` or `terraform apply`"
@@ -15,7 +16,7 @@ install:
 	rm -rf .$@
 
 init plan apply:
-	source .env
+	source .env; \
 	terraform $@
 
 kubeconfig:

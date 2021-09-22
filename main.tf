@@ -22,26 +22,26 @@ terraform {
   }
 }
 
-# Set the variable value in *.tfvars file
-# or using -var="do_token=..." CLI option
-variable "do_token" {
+# Set the variable value in *.tfvars file 
+# or using -var="dotoken=..." CLI option
+variable "dotoken" {
   description = "Digital Ocean Access Token"
-  type = "string"
+  type = string
   sensitive = true
 }
 variable "github_username" {
   description = "Your github username"
-  type = "string"
+  type = string
   sensitive = true
 }
 variable "cluster_name" {
   description = "A unique name for your cluster"
-  type = "string"
+  type = string
 }
 
 # Configure the DigitalOcean Provider
 provider "digitalocean" {
-  token = var.do_token
+  token = var.dotoken
 }
 
 # $ doctl kubernetes options versions
@@ -125,7 +125,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/${var.github_username}/k8s-demo-app.git
-    targetRevision: @cbrown/jsonnet-test
+    targetRevision: "@cbrown/jsonnet-test"
     path: manifests
   syncPolicy:
     automated:
