@@ -116,17 +116,17 @@ resource "kubectl_manifest" "root_application" {
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo-application
+  name: my-apps
   namespace: argocd
 spec:
-  project: default
   destination:
     namespace: default
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
   source:
-    repoURL: https://github.com/${var.github_username}/k8s-demo-app.git
+    path: argocd/argocd-apps
+    repoURL: 'https://github.com/${var.github_username}/k8s-demo-app.git'
     targetRevision: "@cbrown/jsonnet-test"
-    path: manifests
+  project: default
   syncPolicy:
     automated:
       prune: true
