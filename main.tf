@@ -182,7 +182,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/${var.github_username}/k8s-demo-app.git
-    targetRevision: '@cbrown/ingress-refactor'
+    targetRevision: 'main'
     path: manifests
   syncPolicy:
     automated:
